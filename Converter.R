@@ -15,5 +15,5 @@ dados <- purrr::map(caminho, read.dbc::read.dbc)
 for (i in 1 : length(arquivo))
 {
 b[[i]] <- dplyr::filter(dados[[i]], PA_CODUNI == "4014111")
-readr::write_rds(b[[i]], path = saida[i])
+readr::write_rds(b[[i]], path = saida[i], compress = "xz")
 }
