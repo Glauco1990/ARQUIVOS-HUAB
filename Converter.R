@@ -6,17 +6,6 @@ a <- read.dbc::read.dbc(caminho)
 a <- dplyr::filter(a, PA_CODUNI == "4014111")
 readr::write_rds(a, path = saida)
 
-# ler varios arquivos
-arquivo <- list.files("DATASUS", pattern = ".dbc")
-
-caminho <- purrr::map(arquivo[1], function(a) {stringr::str_c("DATASUS/",arquivo)})
-
-saida <- purrr::map(arquivo[1], function(a) {stringr::str_c("CONVERSÕES/PAHUAB",stringr::str_sub(arquivo, start = 5, end = 8))})
-
-a <- purrr::map(caminho[1], read.dbc::read.dbc)
-a <- dplyr::filter(a, PA_CODUNI == "4014111")
-readr::write_rds(a, path = saida)
-
 # Com for
 arquivo <- list.files("DATASUS", pattern = ".dbc")
 caminho <- NULL
