@@ -7,7 +7,7 @@ b <- NULL
 for (i in 1 : length(arquivo))
 {
 caminho[i] <- stringr::str_c("DATASUS/",arquivo[i])
-saida[i] <- stringr::str_c("../../PACOTES/DATASUSHUAB/data-raw/RDS/PAHUAB",stringr::str_sub(arquivo[i], start = 5, end = 8),".rds")
+saida[i] <- stringr::str_c("../../PACOTES/DATASUSHUAB/data-raw/RDS/",stringr::str_sub(arquivo[i], end = 2),"HUAB",stringr::str_sub(arquivo[i], start = 5, end = 8),".rds")
 }
 
 dados <- purrr::map(caminho, read.dbc::read.dbc)
